@@ -40,32 +40,46 @@ const Projects = ({ id, search, setSearch }) => {
 
   return (
     <section id={id} className='project-container'>
-     <h3 id='about-heading'>Projects</h3>
+      <h3 className='about-heading'>Projects</h3>
       <input type='search' onChange={(e) => { setSearch(e.target.value); console.log(e.target.value) }}
-        value={search} placeholder='search by skills' />
+        value={search} placeholder='Search by skills' />
       <article className="content">
         {projectData
           .sort((a, b) => a?.sequence - b?.sequence)
           .filter((item) => item?.enabled === true)
           .map(data => {
             return (
-              <div key={data._id} className='project-card'>
+              <div key={data._id}  
+              onClick={() => onOpenModal(data)}className='project-card'>
 
-                <p>title:{data?.title}</p>
-                <img src={data?.image.url} onClick={() => onOpenModal(data)} alt="project" />
-                <p>techStack:{data?.techStack.join(', ')}</p>
+                <h4 className='title'>{data?.title}</h4>
+                <img className='project-img' src={data?.image.url} alt="project" />
+                <p>Skills : {data?.techStack.join(', ')}</p>
               </div>
             )
           })
         }
       </article>
-      <Modal className='modal-card' open={openModal} onClose={onCloseModal}>
+      <Modal  
+      open={openModal} 
+      onClose={onCloseModal}
+      center
+        classNames={{
+          overlay: 'customOverlay',
+          modal: 'customModal',
+          overlayAnimationIn: 'customEnterOverlayAnimation',
+          overlayAnimationOut: 'customLeaveOverlayAnimation',
+          modalAnimationIn: 'customEnterModalAnimation',
+          modalAnimationOut: 'customLeaveModalAnimation',
+        }}
+        animationDuration={800}
+        >
         {selectedProject && (
-          <div >
-            <p>title: {selectedProject.title}</p>
-            <img src={selectedProject.image.url} alt="project" />
-            <p>techStack: {selectedProject.techStack.join(', ')}</p>
-            <p>description: {selectedProject.description}</p>
+          <div className='modal-card'>
+            <h4 className='title'> {selectedProject.title}</h4>
+            <img className='modal-img' src={selectedProject.image.url} alt="project" />
+            <p>Skills :<span className="skills-name" > {selectedProject.techStack.join(', ')}</span></p>
+            <p> {selectedProject.description}</p>
           </div>
         )}
       </Modal>

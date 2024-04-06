@@ -1,10 +1,10 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import './timeline.css';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
 
-const Timeline = ({ timelineData }) => {
+const Timeline = ({ timelineData, workIcon, eduIcon }) => {
 
   const [expVisible, setExpVisible] = useState(true);
   const [eduVisible, setEduVisible] = useState(false);
@@ -20,13 +20,15 @@ const Timeline = ({ timelineData }) => {
   };
 
 
-
   return (
     <section className='timeline-container'>
 
-      <p>timeline</p>
-      <button className={expVisible ? 'active-timeline' : ''} onClick={() =>HandleVisibility('experience')}>Experience</button>
-      <button className={eduVisible ? 'active-timeline' : ''} onClick={() => HandleVisibility('education')}>Education</button>
+      <h3 className='about-heading'>Timeline</h3>
+      <div className="select-btn">
+        <button className={expVisible ? 'active-timeline' : ''} onClick={() => HandleVisibility('experience')}>Experience</button>
+
+        <button className={eduVisible ? 'active-timeline' : ''} onClick={() => HandleVisibility('education')}>Education</button>
+      </div>
       <article className='timeline-content'>
         {expVisible && <div className="experience-content">
           <VerticalTimeline layout='2-columns' lineColor={"black"}>
@@ -43,19 +45,20 @@ const Timeline = ({ timelineData }) => {
                       contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
                       date={`${data?.startDate.substring(0, 7)} - ${data?.endDate.substring(0, 7)}`}
                       textClassName={"geee"}
-                      iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                    // icon={<WorkIcon />}
+                      iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff', display: "flex", justifyContent: "center", alignItems: "center" }}
+                      icon={workIcon}
                     >
-                      {/* <p> date={`${data?.startDate.substring(0, 7)} - ${data?.endDate.substring(0, 7)}`}</p> */}
-                      <h3 className="vertical-timeline-element-title">Creative Director</h3>
-                      <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-                      <p>{data?.company_name}</p>
+                      <h3 className="vertical-timeline-element-title job-title">{data?.jobTitle}</h3>
+                      <p className="vertical-timeline-element-subtitle" >{data?.company_name}  <span className='location'>{data?.jobLocation}</span></p>
                       <p>{data?.summary}</p>
                     </VerticalTimelineElement>
 
                   )
                 })
             }
+            <VerticalTimelineElement
+              iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+            />
           </VerticalTimeline>
         </div>
         }
@@ -74,19 +77,20 @@ const Timeline = ({ timelineData }) => {
                       contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
                       date={`${data?.startDate.substring(0, 7)} - ${data?.endDate.substring(0, 7)}`}
                       textClassName={"geee"}
-                      iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                    // icon={<WorkIcon />}
+                      iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff', display: "flex", justifyContent: "center", alignItems: "center" }}
+                      icon={eduIcon}
                     >
-                      {/* <p> date={`${data?.startDate.substring(0, 7)} - ${data?.endDate.substring(0, 7)}`}</p> */}
-                      <h3 className="vertical-timeline-element-title">Creative Director</h3>
-                      <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-                      <p>{data?.company_name}</p>
+                      <h3 className="vertical-timeline-element-title job-title">{data?.jobTitle}</h3>
+                      <p className="vertical-timeline-element-subtitle" >{data?.company_name}  <span className='location'>{data?.jobLocation}</span></p>
                       <p>{data?.summary}</p>
                     </VerticalTimelineElement>
 
                   )
                 })
             }
+            <VerticalTimelineElement
+              iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+            />
           </VerticalTimeline>
         </div>
         }

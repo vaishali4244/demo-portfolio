@@ -1,46 +1,44 @@
-.hero-container{
-    /* border: 1px solid green; */
-    height: 100vh;
-    width: 100%;
-    box-sizing: border-box;
-    background: var(--blue);
-    padding: 5vw;
-    padding-top: 10vh;
-    /* margin-top: 5vh; */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.hero-container {
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--blue);
+  padding: 5vw;
+  padding-top: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.hero-content{
-    width: 48vw;
-    margin: 5vh 1vw;
+.hero-content {
+  width: 48vw;
+  margin: 5vh 1vw;
 }
 
-.hero-content h1{
-    font-size: 4rem;
+.hero-content h1 {
+  font-size: 4rem;
 }
 
-.hero-content h1 #name{
-    font-size: 3.5rem;
-    color: rgb(0, 187, 255);
+.hero-content h1 #name {
+  font-size: 3.5rem;
+  color: rgb(0, 187, 255);
 }
 
-.hero-content h2{
-    margin: 2rem 0;
+.hero-content h2 {
+  margin: 2rem 0;
 }
 
-.hero-content p{
-    font-size: 1.4rem;
+.hero-content p {
+  font-size: 1.4rem;
 }
 
-.hero-img{
-    height: 65vh;
-    width: 25vw;
-    border-radius: 12px;
-    box-shadow:0 0 0 2px #585a82;
+.hero-img {
+  height: 65vh;
+  width: 25vw;
+  border-radius: 12px;
+  box-shadow: 0 0 0 2px #585a82;
 }
 
-.hero-img:hover{
-    box-shadow:0 0 0 2px #6d6f9c;
+.hero-img:hover {
+  box-shadow: 0 0 0 2px #6d6f9c;
 }

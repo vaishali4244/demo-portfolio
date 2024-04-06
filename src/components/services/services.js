@@ -5,7 +5,7 @@ const Services = ({ serviceData, id }) => {
   return (
     <section id={id} className='service-container'>
 
-      <h3 id='about-heading'>Services</h3>
+      <h3 className='about-heading'>Services</h3>
       <article className="service-content">
         {serviceData
           .filter((item) => item?.enabled === true)

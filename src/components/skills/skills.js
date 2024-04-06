@@ -10,7 +10,7 @@ import "react-circular-progressbar/dist/styles.css";
 const Skills = ({ skillsData, id }) => {
   return (
     <section id={id} className='skills-container'>
-      <h3 id='about-heading'>Skills</h3>
+      <h3 className='about-heading'>Skills</h3>
       <article className="skills-content">
         {skillsData
           .sort((a, b) => a?.sequence - b?.sequence)

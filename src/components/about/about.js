@@ -4,7 +4,7 @@ import './about.css';
 const About = ({ aboutData, aboutImg, id }) => {
   return (
     <section id={id} className='about-container'>
-      <h3 id='about-heading'>ABOUT ME</h3>
+      <h3 className='about-heading'>ABOUT ME</h3>
       <main className='about-content'>
 
         <img className='about-img' src={aboutImg} alt="profile " />

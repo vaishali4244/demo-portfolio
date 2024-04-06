@@ -57,11 +57,14 @@ const Screen = () => {
                 </ul>
             </nav>
             <Hero id="hero" aboutData={aboutData} />
-            <About id='about' aboutData={aboutData} aboutImg={aboutImg} />
+            <About className='about' aboutData={aboutData} aboutImg={aboutImg} />
             <Services id='services' serviceData={serviceData} />
             <Skills skillsData={skillsData} />
             <Projects id='projects'  search={search} setSearch={setSearch} />
-            <Timeline  timelineData={timelineData} /> 
+            <Timeline 
+            timelineData={timelineData}
+            workIcon={<img className='work-icon' src={require("../assets/images/suitcase.png")} alt="work"/>}
+            eduIcon={<img className='work-icon' src={require("../assets/images/book.png")} alt="education" />} /> 
             <Testimonial testimonialData={testimonialData} />
             <ContactForm id="contact" aboutData={aboutData} socialData={socialData}  />
         </main>
