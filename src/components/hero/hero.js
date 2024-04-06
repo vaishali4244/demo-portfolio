@@ -12,7 +12,7 @@ const Hero = ({aboutData, id}) => {
     
       </div>
      
-      <img className='hero-img' src={aboutData?.avatar?.url} alt="profile photo" />
+      <img className='hero-img' src={aboutData?.avatar?.url} alt="profile " />
       
     </header>
   )

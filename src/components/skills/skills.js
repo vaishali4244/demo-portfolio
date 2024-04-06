@@ -6,7 +6,6 @@ import {
 import "react-circular-progressbar/dist/styles.css";
 
 
-const percentage = 66;
 
 const Skills = ({ skillsData, id }) => {
   return (

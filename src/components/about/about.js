@@ -7,7 +7,7 @@ const About = ({ aboutData, aboutImg, id }) => {
       <h3 id='about-heading'>ABOUT ME</h3>
       <main className='about-content'>
 
-        <img className='about-img' src={aboutImg} alt="profile photo" />
+        <img className='about-img' src={aboutImg} alt="profile " />
         <div className="about-details">
 
           <p>{[aboutData.description]}</p>

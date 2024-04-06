@@ -15,7 +15,7 @@ const Screen = () => {
     const [aboutImg, setAboutImg] = useState('');
     const [serviceData, setServiceData] = useState([])
     const [skillsData, setSkillsData] = useState([]);
-    const [projectData, setProjectData] = useState([]);
+    // const [projectData, setProjectData] = useState([]);
     const [timelineData, setTimelineData] = useState([])
     const [ testimonialData, setTestimonialData] =useState([])
     const [socialData, setSocialData] = useState([]);
@@ -66,7 +66,7 @@ const Screen = () => {
             <Services id='services' serviceData={serviceData} />
             <Skills skillsData={skillsData} />
             <Projects id='projects' 
-            projectData={projectData} 
+            // projectData={projectData} 
             search={search} 
             setSearch={setSearch} />
             <Timeline 
