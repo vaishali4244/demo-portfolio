@@ -1,0 +1,28 @@
+.timeline-container{
+    background: green;
+    background: rgb(169, 240, 169);
+    /* width: 100%; */
+}
+
+.timeline-content{
+    /* width: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.experience-content{
+    width: 90vw;
+}
+
+.education-content{
+    width: 90vw;
+}
+
+.active-timeline{
+    border: 1px solid green;
+    width: 10vw;
+    height: 2rem;
+    background: greenyellow;
+}

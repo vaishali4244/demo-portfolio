@@ -1,0 +1,37 @@
+.skills-container{
+    width: 100%;
+    background: var(--blue);
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skills-content{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin:5vh 4.5vw;
+}
+
+.skills-img{
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+.skills-card{
+    width: 9vw;
+    margin: 4vh 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skills-card p{
+margin: 1rem;
+}
+

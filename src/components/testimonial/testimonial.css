@@ -1,0 +1,14 @@
+.test-container{
+    width: 100%;
+}
+
+.test-content{
+    width: 70vw;
+    height: 60vh;
+}
+
+.test-card{
+    box-sizing: border-box;
+    width: 50vw;
+    height: 50vh;
+}
