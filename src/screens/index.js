@@ -61,8 +61,8 @@ const Screen = () => {
             <Services id='services' serviceData={serviceData} />
             <Skills skillsData={skillsData} />
             <Projects id='projects'  search={search} setSearch={setSearch} />
-            {/* <Timeline  timelineData={timelineData} />  */}
-            {/* <Testimonial testimonialData={testimonialData} /> */}
+            <Timeline  timelineData={timelineData} /> 
+            <Testimonial testimonialData={testimonialData} />
             <ContactForm id="contact" aboutData={aboutData} socialData={socialData}  />
         </main>
     )
