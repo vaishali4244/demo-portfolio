@@ -53,7 +53,7 @@ const Testimonial = ({ testimonialData, id }) => {
               return (
 
                 <div key={data?._id} className="test-card" >
-                  <img src={data?.image?.url} className="pro-img2" />
+                  <img src={data?.image?.url} className="pro-img2" alt='testimonial'/>
                   <div className="card-body ">
                     <h4 className="card-font3">{data?.name}</h4>
                     <p>{data?.position}</p>

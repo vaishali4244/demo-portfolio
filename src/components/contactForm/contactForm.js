@@ -73,7 +73,7 @@ const ContactForm = ({ aboutData, socialData, id }) => {
           .map(data => {
             return (
               <div key={data._id} className='social-card'>
-                <img className='social-img' src={data?.image.url} alt="project image" />
+                <img className='social-img' src={data?.image.url} alt="project " />
               </div>
             )
           })

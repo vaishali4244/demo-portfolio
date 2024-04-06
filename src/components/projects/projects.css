@@ -19,3 +19,7 @@
     
     width: 30vw;
 }
+
+.modal-card{
+    background: var(--darkBlue);
+}

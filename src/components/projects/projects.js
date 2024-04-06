@@ -59,14 +59,14 @@ const Projects = ({ id, search, setSearch }) => {
           })
         }
       </article>
-      <Modal open={openModal} onClose={onCloseModal}>
+      <Modal className='modal-card' open={openModal} onClose={onCloseModal}>
         {selectedProject && (
-          <>
+          <div >
             <p>title: {selectedProject.title}</p>
             <img src={selectedProject.image.url} alt="project" />
             <p>techStack: {selectedProject.techStack.join(', ')}</p>
             <p>description: {selectedProject.description}</p>
-          </>
+          </div>
         )}
       </Modal>
     </section>
