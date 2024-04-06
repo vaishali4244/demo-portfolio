@@ -40,7 +40,7 @@ const Projects = ({ id, search, setSearch }) => {
 
   return (
     <section id={id} className='project-container'>
-      <p>projects</p>
+     <h3 id='about-heading'>Projects</h3>
       <input type='search' onChange={(e) => { setSearch(e.target.value); console.log(e.target.value) }}
         value={search} placeholder='search by skills' />
       <article className="content">
@@ -52,7 +52,7 @@ const Projects = ({ id, search, setSearch }) => {
               <div key={data._id} className='project-card'>
 
                 <p>title:{data?.title}</p>
-                <img src={data?.image.url} onClick={() => onOpenModal(data)} alt="project image" />
+                <img src={data?.image.url} onClick={() => onOpenModal(data)} alt="project" />
                 <p>techStack:{data?.techStack.join(', ')}</p>
               </div>
             )
@@ -63,7 +63,7 @@ const Projects = ({ id, search, setSearch }) => {
         {selectedProject && (
           <>
             <p>title: {selectedProject.title}</p>
-            <img src={selectedProject.image.url} alt="project image" />
+            <img src={selectedProject.image.url} alt="project" />
             <p>techStack: {selectedProject.techStack.join(', ')}</p>
             <p>description: {selectedProject.description}</p>
           </>

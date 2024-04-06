@@ -10,12 +10,10 @@ import ContactForm from '../components/contactForm/contactForm';
 import axios from 'axios';
 
 const Screen = () => {
-    // const [apiData, setApiData] = useState([]);
     const [aboutData, setAboutData] = useState([]);
     const [aboutImg, setAboutImg] = useState('');
     const [serviceData, setServiceData] = useState([])
     const [skillsData, setSkillsData] = useState([]);
-    // const [projectData, setProjectData] = useState([]);
     const [timelineData, setTimelineData] = useState([])
     const [ testimonialData, setTestimonialData] =useState([])
     const [socialData, setSocialData] = useState([]);
@@ -27,8 +25,7 @@ const Screen = () => {
     const handleData = () => {
         axios.get(`${url}`)
             .then(res => {
-                // console.log("res", res?.data);
-                // setApiData(res?.data?.user)
+               
                 setAboutData(res?.data?.user?.about)
                 setAboutImg(res?.data?.user?.about?.alternateAvatars[0]?.url)
                 setServiceData(res?.data?.user?.services)
@@ -36,8 +33,6 @@ const Screen = () => {
                 setTimelineData(res?.data?.user?.timeline)
                 setTestimonialData(res?.data?.user?.testimonials)
                 setSocialData(res?.data?.user?.social_handles)
-
-             
 
             })
             .catch(err => {
@@ -47,7 +42,7 @@ const Screen = () => {
     }
     useEffect(() => {
         handleData()
-    }, [])
+    })
 
 
     return (
@@ -65,10 +60,7 @@ const Screen = () => {
             <About id='about' aboutData={aboutData} aboutImg={aboutImg} />
             <Services id='services' serviceData={serviceData} />
             <Skills skillsData={skillsData} />
-            <Projects id='projects' 
-            // projectData={projectData} 
-            search={search} 
-            setSearch={setSearch} />
+            <Projects id='projects'  search={search} setSearch={setSearch} />
             <Timeline 
              timelineData={timelineData} /> 
             <Testimonial testimonialData={testimonialData} />
