@@ -21,7 +21,6 @@
 .service-card{
     width: 28vw;
     height: 70vh;
-    /* border: 1px solid green; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,7 +30,6 @@
     text-align: center;
     padding: 2vh 2vw;
     box-sizing: border-box;
-    /* line-height: 1.3rem; */
     box-shadow:0 0 0 2px #585a82;
 }
 
@@ -39,8 +37,8 @@
     font-size: 1.6rem;
     line-height: 2.4rem;
 }
+
 .service-card p{
-    /* font-size: 1.6rem; */
     line-height: 1.4rem;
     margin: 0.6rem;
 }

@@ -12,10 +12,10 @@ const About = ({ aboutData, aboutImg, id }) => {
 
           <p>{[aboutData.description]}</p>
           <div className="more-details">
-            <p>Name:{[aboutData?.name]}</p>
-            <p>Email:{[aboutData?.contactEmail]}</p>
-            <p>Address:{[aboutData?.address]}</p>
-            <p>Quote:{[aboutData?.quote]}</p>
+            <p>Name : <span className='charges'>{[aboutData?.name]}</span></p>
+            <p>Email : <span className='charges'>{[aboutData?.contactEmail]}</span></p>
+            <p>Address : <span className='charges'>{[aboutData?.address]}</span></p>
+            <p>Quote : <span className='charges'>{[aboutData?.quote]}</span> </p>
           </div>
         </div>
       </main>

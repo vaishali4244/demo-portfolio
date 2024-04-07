@@ -15,9 +15,8 @@ const Screen = () => {
     const [serviceData, setServiceData] = useState([])
     const [skillsData, setSkillsData] = useState([]);
     const [timelineData, setTimelineData] = useState([])
-    const [ testimonialData, setTestimonialData] =useState([])
+    const [testimonialData, setTestimonialData] = useState([])
     const [socialData, setSocialData] = useState([]);
-    // const [contactData, setContactData] = useState([]);
     const [search, setSearch] = useState('')
 
 
@@ -25,7 +24,7 @@ const Screen = () => {
     const handleData = () => {
         axios.get(`${url}`)
             .then(res => {
-               
+
                 setAboutData(res?.data?.user?.about)
                 setAboutImg(res?.data?.user?.about?.alternateAvatars[0]?.url)
                 setServiceData(res?.data?.user?.services)
@@ -53,20 +52,20 @@ const Screen = () => {
                     <li><a href='#about'>About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li className='contact' ><a   href="#contact">Contact</a></li>
+                    <li className='contact' ><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
             <Hero id="hero" aboutData={aboutData} />
-            <About className='about' aboutData={aboutData} aboutImg={aboutImg} />
+            <About id='about' aboutData={aboutData} aboutImg={aboutImg} />
             <Services id='services' serviceData={serviceData} />
             <Skills skillsData={skillsData} />
-            <Projects id='projects'  search={search} setSearch={setSearch} />
-            <Timeline 
-            timelineData={timelineData}
-            workIcon={<img className='work-icon' src={require("../assets/images/suitcase.png")} alt="work"/>}
-            eduIcon={<img className='work-icon' src={require("../assets/images/book.png")} alt="education" />} /> 
+            <Projects id='projects' search={search} setSearch={setSearch} />
+            <Timeline
+                timelineData={timelineData}
+                workIcon={<img className='work-icon' src={require("../assets/images/suitcase.png")} alt="work" />}
+                eduIcon={<img className='work-icon' src={require("../assets/images/book.png")} alt="education" />} />
             <Testimonial testimonialData={testimonialData} />
-            <ContactForm id="contact" aboutData={aboutData} socialData={socialData}  />
+            <ContactForm id="contact" aboutData={aboutData} socialData={socialData} />
         </main>
     )
 }

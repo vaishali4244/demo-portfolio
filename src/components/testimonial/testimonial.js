@@ -10,12 +10,13 @@ const Testimonial = ({ testimonialData }) => {
     dots: true,
   
     infinite: true,
-    speed: 5000,
+    speed: 10000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     initialSlide: 0,
     pauseOnHover: true,
+    variableWidth: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -45,20 +46,23 @@ const Testimonial = ({ testimonialData }) => {
   };
   return (
     <section className='testimonial-container'>
-      <h3 className='about-heading'>Testimonial</h3>
-      <article className="test-content">
+      <h3 className='about-heading'>Testimonials</h3>
+      <article className="test-content ">
         <Slider {...settings}>
           {testimonialData
             .filter((item) => item?.enabled === true)
             .map(data => {
               return (
 
-                <div key={data?._id} className="test-card" >
-                  <img  className='skills-img' src={data?.image?.url} alt='testimonial'/>
+                <div key={data?._id} className="test-card" style={{ width: "35vw"}} >
+                  <div className="card-content">
+
                   <div className="test-body ">
-                    <h4 className="job-title">{data?.name}</h4>
+                  <img  className='skills-img' src={data?.image?.url} alt='testimonial'/>
+                    <h6 className="job-title">{data?.name}</h6>
+                  </div>
                     <p>{data?.position}</p>
-                    <p>{data?.review}</p>
+                    <p>"{data?.review}"</p>
                   </div>
                 </div>
               )
