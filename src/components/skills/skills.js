@@ -1,9 +1,8 @@
 import React from 'react';
 import './skills.css';
-import {
-  CircularProgressbarWithChildren,
-} from "react-circular-progressbar";
+import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { motion } from "framer-motion";
 
 
 
@@ -17,7 +16,8 @@ const Skills = ({ skillsData, id }) => {
           .filter((item) => item?.enabled === true)
           .map(data => {
             return (
-              <div key={data._id} className='skills-card'>
+              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}
+                className='skills-card'>
 
                 <p>{data?.name}</p>
 
@@ -30,7 +30,7 @@ const Skills = ({ skillsData, id }) => {
                   />
 
                 </CircularProgressbarWithChildren>
-              </div>
+              </motion.div>
 
             )
           })

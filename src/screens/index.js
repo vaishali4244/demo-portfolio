@@ -8,16 +8,18 @@ import Timeline from '../components/timeline/timeline';
 import Testimonial from '../components/testimonial/testimonial';
 import ContactForm from '../components/contactForm/contactForm';
 import axios from 'axios';
+import { PulseLoader } from 'react-spinners';
 
 const Screen = () => {
     const [aboutData, setAboutData] = useState([]);
     const [aboutImg, setAboutImg] = useState('');
-    const [serviceData, setServiceData] = useState([])
+    const [serviceData, setServiceData] = useState([]);
     const [skillsData, setSkillsData] = useState([]);
-    const [timelineData, setTimelineData] = useState([])
-    const [testimonialData, setTestimonialData] = useState([])
+    const [timelineData, setTimelineData] = useState([]);
+    const [testimonialData, setTestimonialData] = useState([]);
     const [socialData, setSocialData] = useState([]);
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState('');
+    const [loading, setLoading] = useState(true);
 
 
     const url = `https://portfolio-backend-30mp.onrender.com/api/v1/get/user/65b3a22c01d900e96c4219ae`
@@ -36,6 +38,9 @@ const Screen = () => {
             })
             .catch(err => {
                 console.log("error ", err)
+            })
+            .finally(() => {
+                setLoading(false);
             });
 
     }
@@ -46,6 +51,12 @@ const Screen = () => {
 
     return (
         <main className='container'>
+              {loading ? (
+                <div className="loader-container">
+                    <PulseLoader color="#007bff" size={15} margin={5} />
+                </div>
+            ) : (
+                <>
             <nav className='nav-container'>
                 <ul className='nav-content'>
                     <li><a href='#hero'>Home</a></li>
@@ -66,7 +77,9 @@ const Screen = () => {
                 eduIcon={<img className='work-icon' src={require("../assets/images/book.png")} alt="education" />} />
             <Testimonial testimonialData={testimonialData} />
             <ContactForm id="contact" aboutData={aboutData} socialData={socialData} />
-        </main>
+         </>
+         )}
+         </main>
     )
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from "framer-motion";
 import './services.css';
 
 const Services = ({ serviceData, id }) => {
@@ -13,7 +14,7 @@ const Services = ({ serviceData, id }) => {
             return (
               <div key={data._id} className='service-card'>
                 <h4 className='title'>{data?.name}</h4>
-                <img className='service-img' src={data?.image.url} alt="project" />
+                <motion.img whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }} className='service-img' src={data?.image.url} alt="project" />
                 <p>{data?.desc}</p>
                 <p>Service charges :<span className='charges'> {data?.charge}</span> </p>
               </div>
