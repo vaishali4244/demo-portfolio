@@ -26,7 +26,7 @@ const Hero = ({aboutData, id}) => {
       <motion.div
           initial="initial"
           animate="visible"
-          exit="exit"
+          exit="exit" 
           variants={variants} 
           className="hero-content">
 
