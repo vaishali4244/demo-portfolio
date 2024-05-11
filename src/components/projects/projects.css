@@ -48,9 +48,11 @@
   box-sizing: border-box;
   box-shadow: 0 0 0 2px #3d3f64;
 }
+
 .project-card:hover {
   background: #424368;
   box-shadow: 0 0 0 2px #3f4164;
+  cursor: pointer;
 }
 
 .project-card .title,
@@ -129,11 +131,30 @@
     transform: scale(1);
   }
 }
+
 @keyframes customLeaveModalAnimation {
   0% {
     transform: scale(1);
   }
   100% {
     transform: scale(0.2);
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .project-card {
+    width: 43vw;
+    margin: 4vh 3vw;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .project-card {
+    width: 85vw;
+    margin: 4vh 3vw;
+  }
+
+  .project-img {
+    width: 65vw;
   }
 }

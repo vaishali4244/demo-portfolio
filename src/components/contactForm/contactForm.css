@@ -68,6 +68,7 @@
   font-size: 0.95rem;
   border-radius: 6px;
 }
+
 .form-group textarea {
   box-sizing: border-box;
   width: 27vw;
@@ -125,4 +126,44 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+}
+
+@media screen and (max-width: 900px) {
+  .contact-container {
+    height: auto;
+  }
+
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .contact-form {
+    width: 85vw;
+    height: 54vh;
+  }
+
+  .form-group {
+    width: 75vw;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 75vw;
+    margin-left: 0.5rem;
+  }
+
+  .contact-data {
+    width: 70vw;
+    height: 40vh;
+  }
+
+  .contact-info {
+    width: 69vw;
+  }
+
+  .social-handles {
+    width: 69vw;
+    height: 2rem;
+    margin-top: 2vh;
+  }
 }

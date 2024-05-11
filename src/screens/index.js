@@ -9,8 +9,9 @@ import Testimonial from "../components/testimonial/testimonial";
 import ContactForm from "../components/contactForm/contactForm";
 import axios from "axios";
 import { PulseLoader } from "react-spinners";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { throttle } from "lodash";
+import { useLocation } from "react-router-dom";
 
 const Screen = () => {
   const [aboutData, setAboutData] = useState([]);
@@ -27,6 +28,8 @@ const Screen = () => {
     y: 0,
   });
   const [cursorVariant, setCursorVariant] = useState("default");
+
+  const location = useLocation();
 
   useEffect(() => {
     const mouseMoveFunc = throttle((e) => {
@@ -48,8 +51,8 @@ const Screen = () => {
       y: mousePosition.y - 16,
     },
     text: {
-      //   height: 50,
-      //   width: 50,
+      // height: 50,
+      // width: 50,
       x: mousePosition.x - 16,
       y: mousePosition.y - 16,
       mixBlendMode: "difference",
@@ -97,32 +100,85 @@ const Screen = () => {
         </div>
       ) : (
         <>
-          <nav className="nav-container">
-            <ul className="nav-content">
-              <li>
-                <a href="#hero">Home</a>
-              </li>
-              <li>
+          <motion.nav
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.7,
+            }}
+            className="nav-container"
+          >
+            <motion.ul
+              className="nav-content"
+              initial={{ y: -40 }}
+              animate={{ y: 0 }}
+              transition={{
+                duration: 0,
+                delay: 1.2,
+                type: "spring",
+                stiffness: 200,
+              }}
+            >
+              <motion.li
+                whileHover={{
+                  scale: 1.08,
+                  textShadow: "0 0 8px white ",
+                }}
+              >
+                <a href="#home">Home</a>
+              </motion.li>
+              <motion.li
+                whileHover={{
+                  scale: 1.08,
+                  textShadow: "0 0 8px white ",
+                }}
+              >
                 <a href="#about">About</a>
-              </li>
-              <li>
+              </motion.li>
+              <motion.li
+                whileHover={{
+                  scale: 1.08,
+                  textShadow: "0 0 8px white ",
+                }}
+              >
                 <a href="#services">Services</a>
-              </li>
-              <li>
+              </motion.li>
+              <motion.li
+                whileHover={{
+                  scale: 1.08,
+                  textShadow: "0 0 8px white ",
+                }}
+              >
                 <a href="#projects">Projects</a>
-              </li>
-              <li className="contact">
+              </motion.li>
+              <motion.li
+                whileHover={{
+                  scale: 1.08,
+                  textShadow: "0 0 8px white ",
+                }}
+                className="contact"
+              >
                 <a href="#contact">Contact</a>
-              </li>
-            </ul>
-          </nav>
+              </motion.li>
+            </motion.ul>
+          </motion.nav>
           <motion.div
             className="cursor"
             variants={variants}
             animate={cursorVariant}
           ></motion.div>
-          <Hero id="hero" aboutData={aboutData} />
-          <About id="about" aboutData={aboutData} aboutImg={aboutImg} />
+
+          <Hero id="home" aboutData={aboutData} />
+          <AnimatePresence mode="wait">
+            <About
+              id="about"
+              aboutData={aboutData}
+              aboutImg={aboutImg}
+              location={location}
+              key={location.key}
+            />
+          </AnimatePresence>
           <Services id="services" serviceData={serviceData} />
           <Skills skillsData={skillsData} />
           <Projects id="projects" search={search} setSearch={setSearch} />

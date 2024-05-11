@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
-import './timeline.css';
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
-
+import React, { useState } from "react";
+import "./timeline.css";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import { motion } from "framer-motion";
 
 const Timeline = ({ timelineData, workIcon, eduIcon }) => {
-
   const [expVisible, setExpVisible] = useState(true);
   const [eduVisible, setEduVisible] = useState(false);
 
   const HandleVisibility = (type) => {
-    if (type === 'experience') {
+    if (type === "experience") {
       setExpVisible(true);
       setEduVisible(false);
     } else {
@@ -19,21 +21,37 @@ const Timeline = ({ timelineData, workIcon, eduIcon }) => {
     }
   };
 
-
   return (
-    <section className='timeline-container'>
-
-      <h3 className='about-heading'>Timeline</h3>
+    <section className="timeline-container">
+      <h3 className="about-heading">Timeline</h3>
       <div className="select-btn">
-        <button className={expVisible ? 'active-timeline' : ''} onClick={() => HandleVisibility('experience')}>Experience</button>
+        <motion.button
+          whileHover={{
+            scale: 1.08,
+            boxShadow: "0 0 5px white ",
+          }}
+          className={expVisible ? "active-timeline" : ""}
+          onClick={() => HandleVisibility("experience")}
+        >
+          Experience
+        </motion.button>
 
-        <button className={eduVisible ? 'active-timeline' : ''} onClick={() => HandleVisibility('education')}>Education</button>
+        <motion.button
+          whileHover={{
+            scale: 1.08,
+            boxShadow: "0 0 5px white ",
+          }}
+          className={eduVisible ? "active-timeline" : ""}
+          onClick={() => HandleVisibility("education")}
+        >
+          Education
+        </motion.button>
       </div>
-      <article className='timeline-content'>
-        {expVisible && <div className="experience-content">
-          <VerticalTimeline layout='2-columns' lineColor={"black"}>
-            {
-              timelineData
+      <article className="timeline-content">
+        {expVisible && (
+          <div className="experience-content">
+            <VerticalTimeline layout="2-columns" lineColor={"black"}>
+              {timelineData
                 .filter((item) => item?.enabled === true)
                 .filter((item) => item?.forEducation === false)
                 .map((data) => {
@@ -41,31 +59,48 @@ const Timeline = ({ timelineData, workIcon, eduIcon }) => {
                     <VerticalTimelineElement
                       key={data?._id}
                       className="vertical-timeline-element--work"
-                      contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                      contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                      date={`${data?.startDate.substring(0, 7)} - ${data?.endDate.substring(0, 7)}`}
+                      contentStyle={{
+                        background: "rgb(33, 150, 243)",
+                        color: "#fff",
+                      }}
+                      contentArrowStyle={{
+                        borderRight: "7px solid  rgb(33, 150, 243)",
+                      }}
+                      date={`${data?.startDate.substring(
+                        0,
+                        7
+                      )} - ${data?.endDate.substring(0, 7)}`}
                       textClassName={"geee"}
-                      iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff', display: "flex", justifyContent: "center", alignItems: "center" }}
+                      iconStyle={{
+                        background: "rgb(33, 150, 243)",
+                        color: "#fff",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
                       icon={workIcon}
                     >
-                      <h3 className="vertical-timeline-element-title job-title">{data?.jobTitle}</h3>
-                      <p className="vertical-timeline-element-subtitle" >{data?.company_name}  <span className='location'>{data?.jobLocation}</span></p>
+                      <h3 className="vertical-timeline-element-title job-title">
+                        {data?.jobTitle}
+                      </h3>
+                      <p className="vertical-timeline-element-subtitle">
+                        {data?.company_name}{" "}
+                        <span className="location">{data?.jobLocation}</span>
+                      </p>
                       <p>{data?.summary}</p>
                     </VerticalTimelineElement>
-
-                  )
-                })
-            }
-            <VerticalTimelineElement
-              iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-            />
-          </VerticalTimeline>
-        </div>
-        }
-        {eduVisible && <div className="education-content">
-          <VerticalTimeline layout='2-columns' lineColor={"black"}>
-            {
-              timelineData
+                  );
+                })}
+              <VerticalTimelineElement
+                iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+              />
+            </VerticalTimeline>
+          </div>
+        )}
+        {eduVisible && (
+          <div className="education-content">
+            <VerticalTimeline layout="2-columns" lineColor={"black"}>
+              {timelineData
                 .filter((item) => item?.enabled === true)
                 .filter((item) => item?.forEducation === true)
                 .map((data) => {
@@ -73,34 +108,47 @@ const Timeline = ({ timelineData, workIcon, eduIcon }) => {
                     <VerticalTimelineElement
                       key={data?._id}
                       className="vertical-timeline-element--work"
-                      contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                      contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                      date={`${data?.startDate.substring(0, 7)} - ${data?.endDate.substring(0, 7)}`}
+                      contentStyle={{
+                        background: "rgb(33, 150, 243)",
+                        color: "#fff",
+                      }}
+                      contentArrowStyle={{
+                        borderRight: "7px solid  rgb(33, 150, 243)",
+                      }}
+                      date={`${data?.startDate.substring(
+                        0,
+                        7
+                      )} - ${data?.endDate.substring(0, 7)}`}
                       textClassName={"geee"}
-                      iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff', display: "flex", justifyContent: "center", alignItems: "center" }}
+                      iconStyle={{
+                        background: "rgb(33, 150, 243)",
+                        color: "#fff",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
                       icon={eduIcon}
                     >
-                      <h3 className="vertical-timeline-element-title job-title">{data?.jobTitle}</h3>
-                      <p className="vertical-timeline-element-subtitle" >{data?.company_name}  <span className='location'>{data?.jobLocation}</span></p>
+                      <h3 className="vertical-timeline-element-title job-title">
+                        {data?.jobTitle}
+                      </h3>
+                      <p className="vertical-timeline-element-subtitle">
+                        {data?.company_name}{" "}
+                        <span className="location">{data?.jobLocation}</span>
+                      </p>
                       <p>{data?.summary}</p>
                     </VerticalTimelineElement>
-
-                  )
-                })
-            }
-            <VerticalTimelineElement
-              iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-            />
-          </VerticalTimeline>
-        </div>
-        }
+                  );
+                })}
+              <VerticalTimelineElement
+                iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+              />
+            </VerticalTimeline>
+          </div>
+        )}
       </article>
-
-
-
-
     </section>
-  )
-}
+  );
+};
 
-export default Timeline
+export default Timeline;

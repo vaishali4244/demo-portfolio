@@ -2,15 +2,42 @@ import React from "react";
 import "./about.css";
 import { motion } from "framer-motion";
 
+const containerVariant = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 1.5,
+      duration: 1.5,
+    },
+  },
+  exit: {
+    x: "-100vw",
+    transition: {
+      ease: "easeInOut",
+    },
+  },
+};
+
 const About = ({ aboutData, aboutImg, id }) => {
   return (
-    <section id={id} className="about-container">
-      <h3 className="about-heading">ABOUT ME</h3>
+    <motion.section
+      id={id}
+      className="about-container"
+      variants={containerVariant}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
+      <motion.h3 className="about-heading">ABOUT ME</motion.h3>
       <main className="about-content">
         <motion.img
-          initial={{ scale: 1 }}
+          initial={{ scale: 1, opacity: 0.4 }}
           animate={{
-            scale: [1, 0.8, 1.1, 0.8, 1],
+            scale: [1, 0.7, 1, 0.7, 1],
+            opacity: [1, 0.4, 1, 0.4, 1],
           }}
           transition={{
             duration: 10,
@@ -19,24 +46,22 @@ const About = ({ aboutData, aboutImg, id }) => {
           className="about-img "
           src={aboutImg}
           alt="profile "
-
-          /* <motion.img
-          animate={{
-            borderRadius: ['10%', '50%', '10%'],
-            rotate: [0, 10, 0],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            repeatType: 'reverse',
-          }}
-          className='about-img '
-          src={aboutImg}
-          alt="profile " */
         />
 
         <div className="about-details">
-          <p>{[aboutData.description]}</p>
+          <motion.p
+            initial={{ scale: 0.1 }}
+            animate={{
+              scale: [1],
+            }}
+            transition={{
+              duration: 5,
+              // repeat: Infinity,
+            }}
+          >
+            {[aboutData.description]}
+          </motion.p>
+
           <div className="more-details">
             <p>
               Name : <span className="charges">{[aboutData?.name]}</span>
@@ -45,16 +70,20 @@ const About = ({ aboutData, aboutImg, id }) => {
               Email :{" "}
               <span className="charges">{[aboutData?.contactEmail]}</span>
             </p>
-            <p>
+            <motion.p
+              initial={{ x: 100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 2 }}
+            >
               Address : <span className="charges">{[aboutData?.address]}</span>
-            </p>
+            </motion.p>
             <p>
               Quote : <span className="charges">{[aboutData?.quote]}</span>{" "}
             </p>
           </div>
         </div>
       </main>
-    </section>
+    </motion.section>
   );
 };
 

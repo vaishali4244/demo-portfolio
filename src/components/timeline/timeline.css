@@ -20,12 +20,14 @@
 .select-btn button {
   height: 2rem;
   width: 8rem;
+  margin-left: 1rem;
   font-size: 1.2rem;
   color: var(--darkBlue);
   cursor: pointer;
   border: none;
   border-radius: 12px;
   background: rgb(160, 159, 159);
+  padding: 0.2rem 0.8rem;
 }
 
 .select-btn .active-timeline {
@@ -41,6 +43,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .timeline-content p {
   color: var(--darkBlue);
   font-weight: 100;
@@ -66,4 +69,14 @@
 
 .location {
   margin-left: 10vw;
+}
+
+@media screen and (max-width: 500px) {
+  .select-btn {
+    flex-direction: column;
+  }
+
+  .job-title {
+    font-size: 1.2rem;
+  }
 }

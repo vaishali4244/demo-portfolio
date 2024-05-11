@@ -42,3 +42,19 @@
 .hero-img:hover {
   box-shadow: 0 0 0 2px #6d6f9c;
 }
+
+@media screen and (max-width: 650px) {
+  .hero-container {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .hero-content {
+    width: 80vw;
+  }
+
+  .hero-img {
+    height: 50vh;
+    width: 55vw;
+  }
+}

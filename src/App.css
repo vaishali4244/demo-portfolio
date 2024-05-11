@@ -6,7 +6,7 @@
 
 .nav-container {
   box-sizing: border-box;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 100;
   width: 98.75vw;
@@ -53,4 +53,14 @@
   left: 0;
   z-index: 1000;
   pointer-events: none;
+}
+
+@media screen and (max-width: 500px) {
+  .nav-content {
+    flex-wrap: wrap;
+  }
+
+  .nav-content li {
+    width: 5rem;
+  }
 }
